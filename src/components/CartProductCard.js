@@ -12,7 +12,7 @@ const CartProductCard = (props) => {
             <span onClick={props.handleDecrease}>-</span>
           ) : (
             <span onClick={props.handleRemove} s>
-              <Trash size={16} />
+              <Trash size={14} />
             </span>
           )}
           <span className="quantity">{props.quantity}</span>
@@ -21,8 +21,8 @@ const CartProductCard = (props) => {
         </div>
       </div>
       <div>
-        <h2>{props.title}</h2>
-        <h3>${props.price}</h3>
+        <h3>{props.title}</h3>
+        <h4>${props.price}</h4>
         <button onClick={props.handleRemove}>Remove</button>
       </div>
     </CartProductStyle>

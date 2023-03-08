@@ -1,5 +1,6 @@
 import React from "react";
 import CartProductCard from "../../CartProductCard";
+import { CartStyle } from "../../style/Cart.styled";
 import { useSelector, useDispatch } from "react-redux";
 import {
   increaseQuantity,
@@ -42,7 +43,7 @@ const Cart = () => {
       let sum = totalArr.reduce(function (previousValue, currentValue) {
         return previousValue + currentValue;
       });
-      return sum;
+      return sum.toFixed(2);
     } else {
       return;
     }
@@ -64,7 +65,7 @@ const Cart = () => {
   });
 
   return (
-    <div>
+    <CartStyle>
       {item === 0 && (
         <div>
           <h2>Cart is empty.</h2>
@@ -72,8 +73,12 @@ const Cart = () => {
       )}
 
       {productArr}
-      {item >= 1 && <span>total:{total()}</span>}
-    </div>
+      {item >= 1 && (
+        <span className="total">
+          <span className="total__word">Total Amount:</span> ${total()}
+        </span>
+      )}
+    </CartStyle>
   );
 };
 

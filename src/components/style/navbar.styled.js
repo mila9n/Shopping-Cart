@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const NavbarStyle = styled.header`
-  border: 1px solid black;
   background-color: #000;
+  position: fixed;
+  top: 0;
+  width: 100%;
 
   & > nav {
     max-width: 1100px;
-    padding: 10px;
+    padding: 15px 10px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -18,6 +20,10 @@ export const NavbarStyle = styled.header`
       text-decoration: none;
       font-size: 20px;
     }
+
+    & > a:hover {
+      color: lightblue;
+    }
   }
 
   .cart {
@@ -28,16 +34,20 @@ export const NavbarStyle = styled.header`
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color: lightblue;
-    color: #000;
-    width: 20px;
-    height: 20px;
+    background-color: tomato;
+    color: #fff;
+    width: 17px;
+    height: 17px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 800;
     border-radius: 100px;
     z-index: 2;
+  }
+
+  .selected {
+    color: skyblue;
   }
 `;
