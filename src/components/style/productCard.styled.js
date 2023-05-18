@@ -6,7 +6,10 @@ export const ProductCardStyle = styled.div`
   padding: 10px 15px;
 
   img {
-    width: 100%;
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+    object-fit: contain;
   }
 
   h2 {
@@ -27,7 +30,7 @@ export const ProductCardStyle = styled.div`
     border-radius: 100px;
     border: 2px solid gray;
     padding: 4px 20px;
-    margin: 10px 0;
+    margin: 10px 0 10px;
     font-size: 15px;
     background-color: transparent;
     cursor: pointer;
