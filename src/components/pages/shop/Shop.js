@@ -2,6 +2,7 @@ import React from "react";
 import ProductCard from "../../ProductCard";
 import { ShopStyle } from "../../style/shop.styled";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 import { addToCart, addQuantity } from "../../../Redux/features/Cart";
 
@@ -10,13 +11,17 @@ const Shop = () => {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    setLoading(true);
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setProducts(json));
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const { data } = await axios.get("https://fakestoreapi.com/products");
+        setProducts(data);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
   }, []);
 
   const cart = useSelector((state) => state.cart.cartItem);
